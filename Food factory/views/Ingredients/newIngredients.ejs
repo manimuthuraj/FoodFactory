@@ -1,0 +1,46 @@
+<%- include("../partials/header") %>
+
+    <div class="container">
+        <div class="add">
+            <div>
+                Add new Ingrediants
+            </div>
+            <form action="/ingredients" method="POST" id="myform">
+                <div class=" form-group ">
+                    <label for="Name ">Ingredients Name</label>
+                    <input type="text" class="form-control " id="name " name="name" placeholder="Ingredients Name ">
+                </div>
+
+                <div class="form-group">
+                    <label for="Quantity">Threshold Quantity</label>
+                    <input type="number" class="form-control" id="Quantity" name="tquantity" placeholder="Threshold Quantity">
+                </div>
+
+                <div class="form-group">
+                    <label for="Quantity">Available Quantity</label>
+                    <input type="number" class="form-control" id="Quantity" name="aquantity" placeholder="Threshold Quantity">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" class="form-control" id="price" name="price" placeholder="price">
+                </div>
+
+                <div class=" form-group ">
+                    <label for="Name ">vendorName</label>
+                    <input type="text" class="form-control " id="name " name="vname" placeholder="Vendor Name ">
+                </div>
+                <div class=" form-group ">
+                    <label for="Name ">vendorEmail</label>
+                    <input type="email" class="form-control " id="name " name="vemail" placeholder="Vendor Email ">
+                </div>
+
+
+                <div>
+                    <button type="submit" id="submit" class="btn btn-warning ">Submit</button>
+                </div>
+                <p id="required"></p>
+            </form>
+        </div>
+    </div>

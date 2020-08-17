@@ -1,0 +1,50 @@
+<%- include("../partials/header") %>
+
+    <div class="container">
+        <div class="add">
+            <div>
+                Edit Ingrediants
+            </div>
+            <form action="/ingredients/<%=Ingredient._id%>?_method=PUT" method="POST" id="myform">
+                <div class=" form-group ">
+                    <label for="Name ">Ingredients Name</label>
+                    <input type="text" class="form-control " id="name " name="ingredientUp[name]" value="<%=Ingredient.name%>">
+                </div>
+
+                <div class="form-group">
+                    <label for="Quantity">Threshold Quantity</label>
+                    <input type="number" class="form-control" id="Quantity" name="ingredientUp[thresholdQuantity]" value="<%=Ingredient.thresholdQuantity%>">
+                </div>
+
+                <div class=" form-group ">
+                    <label for="Quantity ">Available Quantity</label>
+                    <input type="number " class="form-control " id="Quantity " name="ingredientUp[availableQuantity] " value="<%=Ingredient.availableQuantity%>">
+                </div>
+
+
+                <div class="form-group ">
+                    <label for="price ">Price</label>
+                    <input type="number " class="form-control " id="price " name="ingredientUp[price] " value="<%=Ingredient.price%>">
+                </div>
+
+                <div class=" form-group ">
+                    <label for="Name ">vendorName</label>
+                    <input type="text " class="form-control " id="name " name="ingredientUp[vendorName] " value="<%=Ingredient.vendorName%>">
+                </div>
+                <div class=" form-group ">
+                    <label for="Name ">vendorEmail</label>
+                    <input type="email " class="form-control " id="name " name="ingredientUp[vendorEmail] " value="<%= Ingredient.vendorEmail%>">
+                </div>
+
+
+                <div>
+                    <button type="submit " id="submit " class="btn btn-warning ">Update</button>
+                </div>
+                <p id="required "></p>
+            </form>
+        </div>
+        <form id="delete" action="/ingredients/<%=Ingredient._id%>?_method=DELETE" method="post">
+            <button class="btn btn-danger btn-sm">DELETE</button>
+        </form>
+    </div>
+    <%- include("../partials/footer") %>

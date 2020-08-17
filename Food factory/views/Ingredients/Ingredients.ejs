@@ -1,0 +1,24 @@
+<%- include("../partials/header") %>
+    <h1>
+        Ingredients</h1>
+    <p>
+        <%Ingredients.forEach(function(x){%>
+            name:
+            <%= x.name %>
+                lotnumber:
+                <%=x.lotnumber%>
+                    availableQuantity:
+                    <%=x.availableQuantity%>
+                        thresholdQuantity:
+                        <%= x.thresholdQuantity%>
+                            price:
+                            <%= x.price%>
+                                vendorName:
+                                <%=x.vendorName%>
+                                    vendorEmail:
+                                    <%=x.vendorEmail%>
+                                        <a class="btn btn-danger btn-small" href="/ingredients/<%=x._id%>/edit">Edit</a>
+    </p>
+    <%})%>
+        <a class="btn btn-danger " href="Ingredients/add">Add</a>
+        <%- include("../partials/footer.ejs") %>

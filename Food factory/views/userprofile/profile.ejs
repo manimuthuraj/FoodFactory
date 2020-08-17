@@ -1,0 +1,97 @@
+<%- include("../partials/header") %>
+    <%if(!currentUser){%>
+        <p id="message">&#x1f61f Please
+            <a href="/login">Login or register</a> to view your profile</p>
+        <%}else{%>
+            <div class="container row">
+                <div class="card col-md-6">
+                    <p class="title">
+                        UserName:s
+                        <%=currentUser.username%>
+                    </p>
+                    <form action="/user?_method=PUT" method="POST" id="myform">
+                        <div class="form-group">
+                            <label for="password">Current password</label>
+                            <input type="password" class="form-control" id="password" name="user" placeholder="Current password" required min="3" max="8">
+                            <label for="password">New password</label>
+                            <input type="password" class="form-control" id="Newpassword" name="newuser" placeholder="New password" required min="4" max="8">
+                        </div>
+                        <button class="btn btn-warning tn-sm">Submit</button>
+                    </form>
+                </div>
+
+                <div class="col-md-6">
+                    <h1>My Orders <img src="https://img.icons8.com/office/40/000000/shopping-basket.png" /></h1>
+                    <%if(Object.keys(orders).length === 0){%>
+                        <h1 id="message"> No products in My orders yet Buy products to see </h1>
+                        <%}%>
+                            <div class="cards">
+                                subtotal:<img src="https://img.icons8.com/color/18/000000/rupee--v1.png" />
+                                <%=subtotals%>
+                            </div>
+                            <%orders.forEach(function(x){%>
+                                <div class="thumbnail" style="width: 60%;height: 10%;">
+                                    <div class="caption">
+                                        <p>
+                                            Name:
+                                            <%=x.name%>
+                                        </p>
+                                        <p> Mode Of Transport:
+                                            <%=x.moT%>
+                                        </p>
+                                        <p>Price:
+                                            <%=price%>
+                                        </p>
+                                        <p> Number of Items:
+                                            <%=x.noItems%>
+                                        </p>
+                                        <p> Total Price:
+                                            <%=x.totalprice%>
+                                        </p>
+                                        <p> Date of Delivery:
+                                            <%=x.doD%>
+                                        </p>Status:
+                                        <%=x.status%>
+                                            <a class="btn btn-danger btn-small" href="/order/<%=x._id%>/edit">Edit</a>
+                                            <form id="delete" action="/order/<%= x._id %>?_method=DELETE" method="post">
+                                                <button class="btn btn-danger btn-xs">DELETE</button>
+                                            </form>
+                                            </p>
+                                    </div>
+                                </div>
+                                <%})%>
+                </div>
+            </div>
+
+            <%}%>
+
+
+                <style>
+                    /*   p {
+                            margin: 10%;
+                        }
+                        
+                        .card {
+                            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.281);
+                            max-width: 300px;
+                            margin: auto;
+                            margin-top: 5%;
+                            text-align: center;
+                        }
+                        
+                        img {
+                            border-radius: 50%;
+                        }
+                        
+                        .title {
+                            color: orange;
+                            font-size: 18px;
+                        }
+                        
+                        #password,
+                        #Newpassword {
+                            width: 80%;
+                            margin-left: 2%;
+                        }*/
+                </style>
+                <%- include("../partials/footer") %>

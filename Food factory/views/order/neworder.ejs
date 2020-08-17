@@ -1,0 +1,47 @@
+<%- include("../partials/header") %>
+
+
+    <div class="container">
+        <div class="add">
+            <div>
+                <b>Order</b>
+            </div>
+            <p>
+                Name:
+                <%=food.name%>
+            </p>
+            Price per item:
+            <%=food.sCost%>
+
+                <form action="/order/<%=food._id%>" method="POST" id="myform">
+                    <div class=" form-group ">
+                        <label for="Name ">Number of item</label>
+                        <input type="number" class="form-control " id="name " name="noi" placeholder="Number of item ">
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="moT" id="active" value="Bike" checked>
+                        <label class="form-check-label" for="active">Bike</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="moT" id="block" value="Cycle">
+                        <label class="form-check-label " for="block"> Cycle</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="status" id="active" value="fastdelivery" checked>
+                        <label class="form-check-label" for="active">Fast delivery</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="moT" id="block" value="normaldelivery">
+                        <label class="form-check-label " for="block"> Normal delivery</label>
+                    </div>
+                    <div>
+                        <button type="submit" id="submit" class="btn btn-danger ">Order</button>
+                    </div>
+                    <p id="required"></p>
+                </form>
+        </div>
+    </div>
+
+    <%- include("../partials/footer") %>

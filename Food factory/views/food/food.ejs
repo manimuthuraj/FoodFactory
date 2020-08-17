@@ -1,0 +1,47 @@
+<%- include("../partials/header") %>
+    <%if(!currentUser){%>
+        <p></p>
+        <%}else{%>
+            <%  if(currentUser.role=='admin'){%>
+                <a class="btn btn-success" href="/admin">DashBoard</a>
+                <a class="btn btn-danger " href="/ingredients">Ingredients</a>
+                <%}%>
+                    <%}%>
+                        <h1>
+                            Foods</h1>
+                        <p>
+                            <%food.forEach(function(x){%>
+                                name:
+                                <%= x.name %>
+                                    lotnumber:
+                                    <%=x.lotnumber%>
+                                        cuisine:
+                                        <%=x.cuisine%>
+                                            costOfP:
+                                            <%= x.costOfP%>
+                                                SellingCost:
+                                                <%=x.sCost%>
+                                                    <!-- ingredients:
+                                    <%x.ingredients.forEach(function(y){%>
+                                        <%=y%>
+                                            <%})%> -->
+                                                    <%if(!currentUser){%>
+                                                        <p></p>
+                                                        <%}else{%>
+                                                            <%  if(currentUser.role=='admin'){%>
+                                                                <a class="btn btn-danger btn-small" href="/food/<%=x._id%>/edit">Edit</a>
+                                                                <%}%>
+                                                                    <%}%>
+
+                                                                        <a class="btn btn-danger btn-small" href="/order/<%=x._id%>/new">Order</a>
+                        </p>
+                        <%})%>
+                            <%if(!currentUser){%>
+                                <p></p>
+                                <%}else{%>
+                                    <%  if(currentUser.role=='admin'){%>
+                                        <a class="btn btn-danger " href="food/add">Add</a>
+                                        <%}%>
+                                            <%}%>
+
+                                                <%- include("../partials/footer") %>

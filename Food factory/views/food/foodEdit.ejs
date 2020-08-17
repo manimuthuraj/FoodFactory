@@ -1,0 +1,41 @@
+<%- include("../partials/header") %>
+
+
+    <div class="container">
+        <div class="add">
+            <div>
+                Edit food
+            </div>
+
+            <form action="/food/<%=food._id%>?_method=PUT" method="POST" id="myform">
+                <div class=" form-group ">
+                    <label for="Name ">Food Name</label>
+                    <input type="text" class="form-control " id="name " name="food[name]" value="<%=food.name%>">
+                </div>
+
+                <div class=" form-group ">
+                    <label for="Name ">Cuisine</label>
+                    <input type="text" class="form-control " id="name " name="food[cuisine]" value="<%=food.cuisine%>">
+                </div>
+                <div class="form-group ">
+                    <label for="price ">Cost of Production</label>
+                    <input type="number " class="form-control " id="price " name="food[costOfP] " value="<%=food.costOfP%>">
+                </div>
+
+                <div class="form-group ">
+                    <label for="price ">selling Price</label>
+                    <input type="number " class="form-control " id="price " name="food[sCost] " value="<%=food.sCost%>">
+                </div>
+
+                <div>
+                    <button type="submit" id="submit" class="btn btn-warning ">Submit</button>
+                </div>
+                <p id="required"></p>
+            </form>
+        </div>
+        <form id="delete" action="/food/<%=food._id%>?_method=DELETE" method="post">
+            <button class="btn btn-danger btn-sm">DELETE</button>
+        </form>
+    </div>
+
+    <%- include("../partials/footer") %>

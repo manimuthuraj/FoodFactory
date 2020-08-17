@@ -1,0 +1,34 @@
+<%- include("../partials/header") %>
+
+
+    <div class="container">
+        <div class="add">
+            <div>
+                Add new food
+            </div>
+            <form action="/food" method="POST" id="myform">
+                <div class=" form-group ">
+                    <label for="Name ">Food Name</label>
+                    <input type="text" class="form-control " id="name " name="name" placeholder="Food Name ">
+                </div>
+
+                <div class=" form-group ">
+                    <label for="Name ">Cuisine</label>
+                    <input type="text" class="form-control " id="name " name="cuisine" placeholder=" Cuisine name ">
+                </div>
+                <p>Ingredients</p>
+                <%ingretients.forEach(function(x){%>
+                    <div class="checkbox">
+                        <label><input type="checkbox" name="ingredients[]" value="<%=x._id%>"><%=x.name%></label>
+                    </div>
+                    <%})%>
+
+                        <div>
+                            <button type="submit" id="submit" class="btn btn-warning ">Submit</button>
+                        </div>
+                        <p id="required"></p>
+            </form>
+        </div>
+    </div>
+
+    <%- include("../partials/footer") %>

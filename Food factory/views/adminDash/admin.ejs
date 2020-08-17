@@ -1,0 +1,107 @@
+<%- include("../partials/header") %>
+    <h4>Users</h4>
+    <table>
+        <tr>
+            <th>username</th>
+            <th>status</th>
+        </tr>
+        <tr>
+            <%users.forEach(function(x){%>
+                <td>
+                    <%=x.username%>
+                </td>
+                <td>
+                    <%=x.status%>
+                        <form action="/admin/status?_method=PUT" method="POST">
+                            <input type="hidden" value="<%=x._id%>" name="id">
+                            <button class="btn btn-warning btn-xs">change status</button>
+                        </form>
+                </td>
+        </tr>
+        <%})%>
+    </table>
+    <h4>Ingredients whose available quantity is less than the threshold quantity.</h4>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>AvailableQuantity</th>
+            <th>ThresholdQuantity</th>
+        </tr>
+        <tr>
+            <%Ingredients.forEach(function(x){%>
+                <td>
+
+                    <%=x.name%>
+                </td>
+                <td>
+                    <%=x.availableQuantity%>
+                </td>
+                <td>
+                    <%=x.thresholdQuantity%>
+                </td>
+        </tr>
+        <%})%>
+    </table>
+    <h4> Food with costOfProduction higher than selling cost</h4>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Cost Of Production</th>
+            <th>Sellng Cost</th>
+        </tr>
+        <tr>
+            <%foods.forEach(function(x){%>
+                <td>
+                    <%=x.name%>
+                </td>
+                <td>
+                    <%=x.costOfP%>
+                </td>
+                <td>
+                    <%=x.sCost%>
+                </td>
+        </tr>
+        <%})%>
+    </table>
+
+    <table>
+        <tr>
+            <th>ingredients provided by same vendor</th>
+        </tr>
+        <tr>
+            <%sameIngredients.forEach(function(x){%>
+                <td>
+                    <h4>
+                        VendorName:
+                        <%=x._id%>
+                    </h4>
+                    <tr>
+                        <td>
+                            Ingredients Name:
+                            <%=x.name%>
+                        </td>
+                    </tr>
+                </td>
+
+        </tr>
+        <%})%>
+    </table>
+
+    <style>
+        table {
+            margin: 3%;
+        }
+        
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        
+        th,
+        td {
+            padding: 15px;
+        }
+    </style>
+    <%- include("../partials/footer") %>

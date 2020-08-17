@@ -1,0 +1,8 @@
+{
+    "name": "FoodFactory App",
+    "version": "1.0.0",
+    "description": "FoodFactory App",
+    "template": {
+        "forceLanguage": "en"
+    }
+}
